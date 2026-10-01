@@ -88,41 +88,13 @@ weighted standard deviation = sqrt[sum(population × (indicator value - weighted
 
 Each ZCTA is then assigned a rank from 0 to 4 based on how its indicator value compares with the weighted mean and standard deviation:
 
-Rank
-
-Category
-
-Classification
-
-0
-
-Well below average
-
-Value < mean − 2 standard deviations
-
-1
-
-Below average
-
-Mean − 2 standard deviations ≤ value < mean − 1 standard deviation
-
-2
-
-Average
-
-Mean − 1 standard deviation ≤ value ≤ mean + 1 standard deviation
-
-3
-
-Above average
-
-Mean + 1 standard deviation < value ≤ mean + 2 standard deviations
-
-4
-
-Well above average
-
-Value > mean + 2 standard deviations
+| Rank | Category | Classification
+| --- | --- | --- |
+| 0 | Well below average | Value < mean − 2 standard deviations    
+| 1 | Below average | Mean − 2 standard deviations ≤ value < mean − 1 standard deviation    
+| 2 | Average | Mean − 1 standard deviation ≤ value ≤ mean + 1 standard deviation    
+| 3 | Above Average | Mean + 1 standard deviation < value ≤ mean + 2 standard deviations    
+| 4 | Well above average | Value > mean + 2 standard deviations    
 
 Missing indicator rankings are assigned a value of **2**, representing the neutral category.
 
@@ -231,63 +203,3 @@ Neutral treatment of missing values. Missing indicator rankings are assigned a v
 Distribution-based need threshold. Economic and Social Need designations are based on the distribution of composite scores within the study area rather than an externally defined hardship threshold. ZCTAs with scores above the 60th percentile are designated as having need for that component.
 
 Combined need is intentionally restrictive. The final combined measure requires a ZCTA to meet the high-need threshold for both the Economic and Social Need components.
-
-Workflow Summary
-
-The methodology consists of the following steps:
-
-Retrieve ACS 2020–2024 5-year data at the ZCTA level.
-
-Merge the required ACS Detailed Tables.
-
-Identify ZCTAs within the study area using the MySidewalk geography selection.
-
-Assemble the three Economic Need indicators.
-
-Calculate population-weighted means and standard deviations for each indicator.
-
-Assign each indicator a 0–4 ranking based on its distance from the weighted mean.
-
-Sum the Economic Need rankings to create SUM_EC.
-
-Identify ZCTAs with SUM_EC values above the 60th percentile and assign EC_NEED.
-
-Assemble the ten Social Need indicators from ACS and external sources.
-
-Calculate population-weighted means and standard deviations for each Social Need indicator.
-
-Assign each indicator a 0–4 ranking.
-
-Sum the Social Need rankings to create SUM_SC.
-
-Identify ZCTAs with SUM_SC values above the 60th percentile and assign SC_NEED.
-
-Combine the Economic and Social Need results.
-
-Assign EC_SC_NEED = 1 to ZCTAs meeting both need criteria.
-
-Output Variables
-
-Variable
-
-Description
-
-SUM_EC
-
-Sum of the three Economic Need indicator rankings; theoretical range 0–12
-
-EC_NEED
-
-Binary Economic Need designation
-
-SUM_SC
-
-Sum of the ten Social Need indicator rankings; theoretical range 0–40
-
-SC_NEED
-
-Binary Social Need designation
-
-EC_SC_NEED
-
-Binary designation identifying ZCTAs classified as both Economic Need and Social Need
